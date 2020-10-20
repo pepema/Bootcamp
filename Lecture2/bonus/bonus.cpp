@@ -17,7 +17,7 @@ int main(){
       cout << "4. Reverse the list" << endl;
       cin >> users_choice;
     }
-    while(users_choice<1 || users_choice > 3);
+    while(users_choice<1 || users_choice > 4);
 
     if(users_choice == 1){
       do{
@@ -117,7 +117,11 @@ void addItem(int value_to_add,int index){
         n=n->next;
       }
     }
+    cout << endl;
     cout << "The index you chose was not valid" << endl;
+    cout << "Try choosing something below " << counter << endl;
+    cout << endl;
+
   }
 }
 void removeItem(){
@@ -140,10 +144,31 @@ void removeItem(int index){
     prev = n;
     n=n->next;
   }
+  cout << endl;
   cout << "Your provided index could not be found.." << endl;
+  cout << "Try choosing something below " << counter << endl;
+  cout << endl;
 }
 void removeItem(int range_start, int range_end){
-
+  Node* n = head;
+  Node* prev;
+  Node* tmp;
+  int counter = 0;
+  while(n->next != nullptr){
+    if(counter == range_start){
+      //remember where range starts
+      tmp = prev;
+    }
+    if(counter == range_end){
+      //link together to range_start
+      tmp->next = n->next;
+      break;
+    }
+    counter++;
+    prev = n;
+    n=n->next;
+  }
+  cout << "Your provided index range could not be found.." << endl;
 }
 void printList(){
   cout << "---------------------This is the list--------------------" << endl;
@@ -163,5 +188,16 @@ void printList(){
 }
 
 void reverseList(){
-
+  Node* current = head;
+  Node *prev = nullptr, *next = nullptr; 
+  while (current != nullptr){ 
+    // Store next
+    next = current->next; 
+    // Reverse current node's pointer 
+    current->next = prev; 
+    // Move pointers one position ahead. 
+    prev = current; 
+    current = next; 
+  } 
+  head = prev; 
 }
