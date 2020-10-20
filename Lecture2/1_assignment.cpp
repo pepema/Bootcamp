@@ -14,29 +14,24 @@ int  main(){
   }
   while(recieved_number<0||rows<0||columns<0||instances<0);
 
-  int *** p_instaces;
-  int ** p_rows;
-  int * p_columns;
-  p_instaces = new int **[instances];
-  p_rows = new int*[rows];
-  p_columns = new int[columns];
-
+  int *** p_ = new int **[instances];
   for(int i=0;i<instances;i++){
+    *(p_+i) = new int*[rows];
     for(int j=0;j<rows;j++){
+      *(*(p_+i)+j) = new int[columns];
       for(int k=0;k<columns;k++){
-        int random_number = rand()%recieved_number;
-        p_columns[i] = random_number;
-        if(random_number<10){
-          cout << random_number << "   ";
+        *(*(*(p_+i)+j)+k) = rand()%recieved_number;
+        if(*(*(*(p_+i)+j)+k)<10){
+          cout << *(*(*(p_+i)+j)+k) << "   ";
         }
-        else if(random_number < 100){
-          cout << random_number << "  ";
+        else if(*(*(*(p_+i)+j)+k) < 100){
+          cout << *(*(*(p_+i)+j)+k) << "  ";
         }
-        else if(random_number < 1000){
-          cout << random_number << " ";
+        else if(*(*(*(p_+i)+j)+k) < 1000){
+          cout << *(*(*(p_+i)+j)+k) << " ";
         }
         else{
-          cout << random_number << "";
+          cout << *(*(*(p_+i)+j)+k) << "";
         }
       }
       cout << "" << endl;
