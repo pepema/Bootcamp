@@ -6,14 +6,17 @@ struct Node{
   struct Node* next;
 };
 
-void addItem(struct Node* n, int value_to_add){
+//global variable
+Node* head = nullptr;
+
+void addItem(int value_to_add){
   //Check if this is head..
-  if(n == nullptr){
-    n = new Node;
-    n->data = value_to_add;
-    n->next = nullptr;
-    cout << n->data << endl;
+  if(head == nullptr){
+    head = new Node;
+    head->data = value_to_add;
+    head->next = nullptr;
   } else {
+    Node* n = head;
     while(n->next != nullptr){
       n=n->next;
     }
@@ -25,16 +28,16 @@ void addItem(struct Node* n, int value_to_add){
   }
   
 }
-Node* removeItem(Node* n){
-  if(n == nullptr){
+void removeItem(){
+  if(head == nullptr){
     cout << "The list is empty..." << endl; 
-    return n;
   }
   else{
-    return n->next;
+    head = head->next;
   }
 }
-void printList(Node* n){
+void printList(){
+  Node* n = head;
   if(n == nullptr){
     cout << "The list is empty..."; 
   }
@@ -49,11 +52,6 @@ void printList(Node* n){
 
 int main(){
   int users_choice, value_to_add;
-  Node* head = nullptr;
-  /*Node* test = new Node();
-  test->data = 231;
-  test->next = nullptr;
-  */
   while(true){
     do{
       cout << "What do you want to do? choose one of the following numbers:" << endl;
@@ -67,13 +65,13 @@ int main(){
     if(users_choice == 1){
       cout << "What value do you want to add?" << endl;
       cin >> value_to_add;
-      addItem(head, value_to_add);
+      addItem(value_to_add);
     }
     else if(users_choice == 2){
-      head = removeItem(head);
+      removeItem();
     }
     else if(users_choice == 3){
-      printList(head);
+      printList();
     }
   }
 }
