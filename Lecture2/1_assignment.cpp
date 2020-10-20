@@ -21,7 +21,7 @@ int  main(){
   p_rows = new int*[rows];
   p_columns = new int[columns];
 
-   for(int i=0;i<instances;i++){
+  for(int i=0;i<instances;i++){
     for(int j=0;j<rows;j++){
       for(int k=0;k<columns;k++){
         int random_number = rand()%recieved_number;
