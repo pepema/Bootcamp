@@ -1,0 +1,1 @@
+g++ linked_list.cpp ../car_shop.cpp storage_car_shop.cpp

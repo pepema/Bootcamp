@@ -68,6 +68,9 @@ void LinkedList::removeItem(){
   }
 }
 void LinkedList::removeItem(int index){
+  if(index == 0){
+    this->removeItem();
+  }
   Node* n = head;
   Node* prev;
   int counter = 0;
@@ -90,22 +93,44 @@ void LinkedList::removeItem(int range_start, int range_end){
   Node* n = head;
   Node* prev;
   Node* tmp;
+  bool flag = false;
   int counter = 0;
+  
+  if(range_start == 0){
+  //skip first customer, we will deal with that one later
+    flag = true;
+    prev = n;
+    n=n->next;
+    counter = range_start = 1;
+  }
   while(n->next != nullptr){
     if(counter == range_start){
       //remember where range starts
       tmp = prev;
     }
+    if(counter>range_start && counter<range_end){
+      delete prev;
+    }
     if(counter == range_end){
       //link together to range_start
       tmp->next = n->next;
+      delete n;
       break;
     }
-    counter++;
     prev = n;
     n=n->next;
+    counter++;
   }
-  cout << "Your provided index range could not be found.." << endl;
+  //check if this is the last valid node
+  if(n->next == nullptr && counter==range_end){
+      tmp->next = n->next;
+      delete n;
+  } else {
+      cout << "Your provided index range could not be found.." << endl;
+  }
+  if(flag){
+    this->removeItem();
+  }
 }
 void LinkedList::printList(){
   cout << "---------------------This is the list--------------------" << endl;
