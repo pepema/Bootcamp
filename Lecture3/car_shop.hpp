@@ -53,7 +53,7 @@ class Date{
 
 class Customer{
   public:
-  Customer() = delete;
+  Customer() = default;
   Customer(Date DateVisited, Payment MethodUsed, Service ServicePerformed);
   Customer(Date DateVisited, Payment MethodUsed, Part PartChanged);
   Customer(Date DateVisited, Payment MethodUsed, Service ServicePerformed, Part PartChanged);

@@ -99,16 +99,10 @@ Customer::Customer(Date DateVisited, Payment MethodUsed, Service ServicePerforme
   this->ServicePerformed = ServicePerformed;
 }
 void Customer::PrintVisitInformation(){
-  //if(this->DateVisited != nullptr){
-    this->DateVisited.PrintDate();
-  //}
-  //if(this->PartChanged != nullptr){
-    this->PartChanged.PrintPart();
-  //}
-  //if(this->PaymentType != nullptr){
-    this->PaymentType.PrintPayment();
-  //}
-  //if(this->ServicePerformed != nullptr){
-    this->ServicePerformed.PrintService();
-  //}
+  std::cout << "----------------------------------------------------" << std::endl;
+  this->DateVisited.PrintDate();
+  this->PartChanged.PrintPart();
+  this->PaymentType.PrintPayment();
+  this->ServicePerformed.PrintService();
+  std::cout << "----------------------------------------------------" << std::endl;
 }
