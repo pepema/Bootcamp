@@ -3,7 +3,6 @@ using namespace std;
 
 int  main(){
   int recieved_number,rows,columns,instances;
-
   do {
     cout << "Please provide the following, space separated: " << endl;
     cout << "1. Postivive integer to generate random number below" << endl;
@@ -34,8 +33,11 @@ int  main(){
           cout << *(*(*(p_+i)+j)+k) << "";
         }
       }
+      delete [] *(*(p_+i)+j);
       cout << "" << endl;
     }
+    delete [] *(p_+i);
     cout << "" << endl;
   }
+  delete [] p_;
 }
