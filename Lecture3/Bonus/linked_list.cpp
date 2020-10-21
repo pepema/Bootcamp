@@ -6,12 +6,14 @@ void LinkedList::createHead(Customer customer){
   head = new Node;
   head->customer = customer;
   head->next = nullptr;
+  this->length++;
 }
 void LinkedList::createLinkedHead(Customer customer){
   Node* tmp = head;
   head = new Node;
   head->customer = customer;
   head->next = tmp;
+  this->length++;
 }
 void LinkedList::addItem(Customer customer){
   //Check if this is head..
@@ -26,6 +28,7 @@ void LinkedList::addItem(Customer customer){
     n->next = newNode;
     newNode->customer = customer;
     newNode->next = nullptr;
+    this->length++;
   }
 }
 void LinkedList::addItem(Customer customer, int index){
@@ -48,6 +51,7 @@ void LinkedList::addItem(Customer customer, int index){
       n->next = newNode;
       newNode->customer = customer;
       newNode->next = tmp;
+      this->length++;
       return;
     }
   counter++;
@@ -69,6 +73,7 @@ void LinkedList::removeItem(){
   } else {
     Node* tmp = head;
     head = head->next;
+    this->length--;
     delete tmp;
   }
 }
@@ -83,6 +88,7 @@ void LinkedList::removeItem(int index){
   while(n->next != nullptr){
     if(counter == index){
       prev->next = n->next;
+      this->length--;
       delete n;
       return;
     }
@@ -93,6 +99,7 @@ void LinkedList::removeItem(int index){
   //Cover the case where we want to remove the last customer
   if(n->next == nullptr && counter==index){
       prev->next = n->next;
+      this->length--;
       delete n;
       return;
   } else {
@@ -105,6 +112,9 @@ void LinkedList::removeItem(int range_start, int range_end){
   for(int i=range_end;i>=range_start;i--){
     this->removeItem(i);
   }
+}
+void LinkedList::removeAllItems(){
+  this->removeItem(0,this->length-1);
 }
 void LinkedList::printList(){
   cout << "---------------------This is the list--------------------" << endl;

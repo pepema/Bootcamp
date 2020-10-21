@@ -37,7 +37,8 @@ int main(){
   list_.addItem(ludi_);
   list_.addItem(frank_);*/
   list_.addItem(nisse_,3);
-  list_.printList();
+  list_.removeItem(0,2);
+  //list_.printList();
   //list_.addItem(ludi_,0);
   /*
   list_.removeItem(0,7);
@@ -47,4 +48,9 @@ int main(){
   list_.removeItem();
   list_.printList();
   */
+  list_.printList();
+  if(list_.length > 0){
+    list_.removeAllItems();
+  }
+  list_.printList();
 }
