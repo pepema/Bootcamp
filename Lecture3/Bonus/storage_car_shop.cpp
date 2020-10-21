@@ -28,18 +28,20 @@ int main(){
   payment_ = Payment(666,PaymentMethods::Card);
   Customer nisse_ = Customer(date_,payment_,service_,part_);
 
-  list_.addItem(frank_);
-  list_.addItem(nisse_);
+  /*list_.addItem(frank_);
+  list_.addItem(nisse_);*/
   list_.addItem(ludi_);
   list_.addItem(ludi_);
   list_.addItem(ludi_);
+  /*list_.addItem(ludi_);
   list_.addItem(ludi_);
-  list_.addItem(ludi_);
-  list_.addItem(frank_);
+  list_.addItem(frank_);*/
+  list_.addItem(nisse_,3);
   list_.printList();
+  //list_.addItem(ludi_,0);
+  /*
   list_.removeItem(0,7);
   list_.printList();
-  /*
   list_.removeItem();
   list_.printList();
   list_.removeItem();

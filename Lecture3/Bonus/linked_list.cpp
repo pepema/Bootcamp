@@ -32,30 +32,36 @@ void LinkedList::addItem(Customer customer, int index){
   //Check if this is head..
   if(head == nullptr){
     createHead(customer);
-  } else {
-    Node* n = head;
-    int counter = 0;
-    if(index == 0){
-      createLinkedHead(customer);
-    } 
-    else {
-      while(n->next != nullptr){
-        if(counter == index){
-          Node* newNode = new Node;
-          Node* tmp = n->next;
-          n->next = newNode;
-          newNode->customer = customer;
-          newNode->next = tmp;
-        }
-        counter++;
-        n=n->next;
-      }
+    return;
+  }
+  if(index == 0){
+    createLinkedHead(customer);
+    return;
+  }
+  Node* n = head;
+  //start at 1 since we have special case for index 0
+  int counter = 1;
+  while(n->next != nullptr){
+    //index-1 since we have a special case for index == 0
+    if(counter == index){
+      Node* newNode = new Node;
+      Node* tmp = n->next;
+      n->next = newNode;
+      newNode->customer = customer;
+      newNode->next = tmp;
+      return;
     }
+  counter++;
+  n=n->next;
+  }
+  //Cover the case where we want to add to the last index
+  if(n->next == nullptr && counter==index){
+      this->addItem(customer);
+  } else {
     cout << endl;
     cout << "The index you chose was not valid" << endl;
-    cout << "Try choosing something below " << counter << endl;
+    cout << "Try choosing something below or equal to " << counter << endl;
     cout << endl;
-
   }
 }
 void LinkedList::removeItem(){
