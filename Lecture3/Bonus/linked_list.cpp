@@ -70,6 +70,7 @@ void LinkedList::removeItem(){
 void LinkedList::removeItem(int index){
   if(index == 0){
     this->removeItem();
+    return;
   }
   Node* n = head;
   Node* prev;
@@ -84,52 +85,20 @@ void LinkedList::removeItem(int index){
     prev = n;
     n=n->next;
   }
-  cout << endl;
-  cout << "Your provided index could not be found.." << endl;
-  cout << "Try choosing something below " << counter << endl;
-  cout << endl;
-}
-void LinkedList::removeItem(int range_start, int range_end){
-  Node* n = head;
-  Node* prev;
-  Node* tmp;
-  bool flag = false;
-  int counter = 0;
-  
-  if(range_start == 0){
-  //skip first customer, we will deal with that one later
-    flag = true;
-    prev = n;
-    n=n->next;
-    counter = range_start = 1;
-  }
-  while(n->next != nullptr){
-    if(counter == range_start){
-      //remember where range starts
-      tmp = prev;
-    }
-    if(counter>range_start && counter<range_end){
-      delete prev;
-    }
-    if(counter == range_end){
-      //link together to range_start
-      tmp->next = n->next;
+  //Cover the case where we want to remove the last customer
+  if(n->next == nullptr && counter==index){
+      prev->next = n->next;
       delete n;
-      break;
-    }
-    prev = n;
-    n=n->next;
-    counter++;
-  }
-  //check if this is the last valid node
-  if(n->next == nullptr && counter==range_end){
-      tmp->next = n->next;
-      delete n;
+      return;
   } else {
       cout << "Your provided index range could not be found.." << endl;
+      cout << "Try choosing something below " << counter << endl;
   }
-  if(flag){
-    this->removeItem();
+}
+void LinkedList::removeItem(int range_start, int range_end){
+  //loop backwards to not loose track of indexes
+  for(int i=range_end;i>=range_start;i--){
+    this->removeItem(i);
   }
 }
 void LinkedList::printList(){

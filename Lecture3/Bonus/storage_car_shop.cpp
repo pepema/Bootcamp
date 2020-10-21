@@ -31,12 +31,18 @@ int main(){
   list_.addItem(frank_);
   list_.addItem(nisse_);
   list_.addItem(ludi_);
-  /*list_.addItem(ludi_);
   list_.addItem(ludi_);
   list_.addItem(ludi_);
-  list_.addItem(ludi_);*/
+  list_.addItem(ludi_);
+  list_.addItem(ludi_);
+  list_.addItem(frank_);
   list_.printList();
-  list_.removeItem(0,2);
-  //list_.removeItem(0);
+  list_.removeItem(0,7);
   list_.printList();
+  /*
+  list_.removeItem();
+  list_.printList();
+  list_.removeItem();
+  list_.printList();
+  */
 }
