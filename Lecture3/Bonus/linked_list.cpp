@@ -42,7 +42,6 @@ void LinkedList::addItem(Customer customer, int index){
   //start at 1 since we have special case for index 0
   int counter = 1;
   while(n->next != nullptr){
-    //index-1 since we have a special case for index == 0
     if(counter == index){
       Node* newNode = new Node;
       Node* tmp = n->next;
