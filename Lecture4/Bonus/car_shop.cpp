@@ -101,7 +101,7 @@ Record::Record(Date DateVisited, Payment MethodUsed, Part PartChanged, Customer 
   this->PartChanged = PartChanged;
   this->CustomerName = CustomerName;
 }
-//Case where customer changes part and does service
+//Case where record includes both change of part and service
 Record::Record(Date DateVisited, Payment MethodUsed, Service ServicePerformed, Part PartChanged, Customer CustomerName){
   this->DateVisited = DateVisited;
   this->PaymentType = MethodUsed;

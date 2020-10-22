@@ -2,23 +2,23 @@
 
 using namespace std;
 
-void RecordList::createHead(Record customer){
+void RecordList::createHead(Record record){
   head = new Node;
-  head->customer = customer;
+  head->record = record;
   head->next = nullptr;
   this->length++;
 }
-void RecordList::createLinkedHead(Record customer){
+void RecordList::createLinkedHead(Record record){
   Node* tmp = head;
   head = new Node;
-  head->customer = customer;
+  head->record = record;
   head->next = tmp;
   this->length++;
 }
-void RecordList::addItem(Record customer){
+void RecordList::addItem(Record record){
   //Check if this is head..
   if(head == nullptr){
-    createHead(customer);
+    createHead(record);
   } else {
     Node* n = head;
     while(n->next != nullptr){
@@ -26,19 +26,19 @@ void RecordList::addItem(Record customer){
     }
     Node* newNode = new Node;
     n->next = newNode;
-    newNode->customer = customer;
+    newNode->record = record;
     newNode->next = nullptr;
     this->length++;
   }
 }
-void RecordList::addItem(Record customer, int index){
+void RecordList::addItem(Record record, int index){
   //Check if this is head..
   if(head == nullptr){
-    createHead(customer);
+    createHead(record);
     return;
   }
   if(index == 0){
-    createLinkedHead(customer);
+    createLinkedHead(record);
     return;
   }
   Node* n = head;
@@ -49,7 +49,7 @@ void RecordList::addItem(Record customer, int index){
       Node* newNode = new Node;
       Node* tmp = n->next;
       n->next = newNode;
-      newNode->customer = customer;
+      newNode->record = record;
       newNode->next = tmp;
       this->length++;
       return;
@@ -59,7 +59,7 @@ void RecordList::addItem(Record customer, int index){
   }
   //Cover the case where we want to add to the last index
   if(n->next == nullptr && counter==index){
-      this->addItem(customer);
+      this->addItem(record);
   } else {
     cout << endl;
     cout << "The index you chose was not valid" << endl;
@@ -96,7 +96,7 @@ void RecordList::removeItem(int index){
     prev = n;
     n=n->next;
   }
-  //Cover the case where we want to remove the last customer
+  //Cover the case where we want to remove the last record
   if(n->next == nullptr && counter==index){
       prev->next = n->next;
       this->length--;
@@ -124,7 +124,7 @@ void RecordList::printList(){
     cout << "The list is empty..."; 
   } else {
     while (n != nullptr) { 
-      n->customer.PrintVisitInformation();
+      n->record.PrintVisitInformation();
       n = n->next; 
     } 
   }

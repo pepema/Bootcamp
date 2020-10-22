@@ -5,15 +5,15 @@
 class RecordList{
   public:
   typedef struct nod{
-    Record customer;
+    Record record;
     struct nod* next;
   }Node;
 
   RecordList() = default;
-  void createHead(Record customer);
-  void createLinkedHead(Record customer);
-  void addItem(Record customer);
-  void addItem(Record customer,int index);
+  void createHead(Record record);
+  void createLinkedHead(Record record);
+  void addItem(Record record);
+  void addItem(Record record,int index);
   void removeItem();
   void removeItem(int index);
   void removeItem(int range_start, int range_end);
