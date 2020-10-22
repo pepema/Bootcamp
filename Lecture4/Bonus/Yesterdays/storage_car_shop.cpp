@@ -6,7 +6,7 @@ int main(){
   Payment payment_;
   Service service_;
   Customer customer_;
-  LinkedList list_;
+  RecordList list_;
 
   part_ = Part(Parts::Trunk);
   date_ = Date(94,11,14);
@@ -33,18 +33,21 @@ int main(){
   customer_ = Customer("nisse");
   Record four = Record(date_,payment_,service_,part_,customer_);
 
-  /*list_.addItem(frank_);
-  list_.addItem(nisse_);*/
+  customer_ = Customer("nisse");
+  Record five = Record(date_,payment_,service_,part_,customer_);
   list_.addItem(one);
   list_.addItem(two);
   list_.addItem(three);
-  /*list_.addItem(ludi_);
-  list_.addItem(ludi_);
-  list_.addItem(frank_);*/
+  list_.addItem(four);
+  list_.addItem(five);
+  /*
+  list_.addItem(two);
+  list_.addItem(two);
+  list_.addItem(one);
   list_.addItem(four,3);
-  list_.removeItem(0,2);
+  list_.removeItem(0,2);*/
   //list_.printList();
-  //list_.addItem(ludi_,0);
+  //list_.addItem(two,0);
   /*
   list_.removeItem(0,7);
   list_.printList();

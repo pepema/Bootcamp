@@ -2,20 +2,20 @@
 
 using namespace std;
 
-void LinkedList::createHead(Record customer){
+void RecordList::createHead(Record customer){
   head = new Node;
   head->customer = customer;
   head->next = nullptr;
   this->length++;
 }
-void LinkedList::createLinkedHead(Record customer){
+void RecordList::createLinkedHead(Record customer){
   Node* tmp = head;
   head = new Node;
   head->customer = customer;
   head->next = tmp;
   this->length++;
 }
-void LinkedList::addItem(Record customer){
+void RecordList::addItem(Record customer){
   //Check if this is head..
   if(head == nullptr){
     createHead(customer);
@@ -31,7 +31,7 @@ void LinkedList::addItem(Record customer){
     this->length++;
   }
 }
-void LinkedList::addItem(Record customer, int index){
+void RecordList::addItem(Record customer, int index){
   //Check if this is head..
   if(head == nullptr){
     createHead(customer);
@@ -67,7 +67,7 @@ void LinkedList::addItem(Record customer, int index){
     cout << endl;
   }
 }
-void LinkedList::removeItem(){
+void RecordList::removeItem(){
   if(head == nullptr){
     cout << "The list is empty..." << endl; 
   } else {
@@ -77,7 +77,7 @@ void LinkedList::removeItem(){
     delete tmp;
   }
 }
-void LinkedList::removeItem(int index){
+void RecordList::removeItem(int index){
   if(index == 0){
     this->removeItem();
     return;
@@ -107,16 +107,16 @@ void LinkedList::removeItem(int index){
       cout << "Try choosing something below " << counter << endl;
   }
 }
-void LinkedList::removeItem(int range_start, int range_end){
+void RecordList::removeItem(int range_start, int range_end){
   //loop backwards to not loose track of indexes
   for(int i=range_end;i>=range_start;i--){
     this->removeItem(i);
   }
 }
-void LinkedList::removeAllItems(){
+void RecordList::removeAllItems(){
   this->removeItem(0,this->length-1);
 }
-void LinkedList::printList(){
+void RecordList::printList(){
   cout << "---------------------This is the list--------------------" << endl;
   cout << endl;
   Node* n = head;
@@ -133,7 +133,7 @@ void LinkedList::printList(){
   cout << endl;
 }
 
-void LinkedList::reverseList(){
+void RecordList::reverseList(){
   Node* current = head;
   Node *prev = nullptr, *next = nullptr; 
   while (current != nullptr){ 

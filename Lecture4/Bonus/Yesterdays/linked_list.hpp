@@ -2,14 +2,14 @@
 #define BONUS_HPP_
 #include <iostream>
 #include "../car_shop.hpp"
-class LinkedList{
+class RecordList{
   public:
   typedef struct nod{
     Record customer;
     struct nod* next;
   }Node;
 
-  LinkedList() = default;
+  RecordList() = default;
   void createHead(Record customer);
   void createLinkedHead(Record customer);
   void addItem(Record customer);
@@ -21,7 +21,7 @@ class LinkedList{
   void printList();
   void reverseList();
   int length = 0;
-  ~LinkedList() = default;
+  ~RecordList() = default;
 
   //Global variables
   Node* head = nullptr;
