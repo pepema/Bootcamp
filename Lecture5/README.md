@@ -1,0 +1,2 @@
+1. Writeafunctiontemplatewhichreceivestwoofanyshapesfromyesterday’sassignment,comparesthem,andprintsouttheresult.
+2. Generaterandomnumbersbetween0-33,tenthousandtimes,thenprinthowmanyduplicatesofeachnumberyouhavegenerated--printinascendingorder.
