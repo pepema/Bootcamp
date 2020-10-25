@@ -1,30 +1,44 @@
 #include "word_counter.hpp"
 
 WordCounter::WordCounter(std::pair<std::string,std::string> path_to_files){
+  this->word_string = "";
+  this->ReadFile(path_to_files.first);
+  this->word_string += " ";
+  this->ReadFile(path_to_files.second);
+  this->path_to_output = path_to_files.second;
+}
+
+void WordCounter::ReadFile(std::string path){
   std::fstream input;
-  input.open(path_to_files.first,std::istringstream::in);
   std::string string;
 
+  input.open(path,std::istringstream::in);
+  if (!input.is_open()) {
+    std::cout << "\"" <<path << "\"" << " could not be found" << std::endl;
+  }   
   std::streampos index = input.tellg();
   input.seekg(0,std::ios::end);
   std::streampos size = input.tellg() - index;
   input.seekg(index);
   char *restOfTheFile = new char[size];
   input.read(restOfTheFile,size);
-  this->word_string = this->ConvertToString(restOfTheFile,size);
+  this->word_string += this->ConvertToString(restOfTheFile,size);
+  input.close();
   delete [] restOfTheFile;
 }
-
 std::string WordCounter::ConvertToString(char* a, int size){ 
-    int i; 
     std::string s = ""; 
-    for (i = 0; i < size; i++) { 
+    for (int i = 0; i < size; i++) { 
+        //replace newlines with space
         if(a[i]==10){
-          //replace newlines with space
           s = s + " ";
         }
-        else{
+        //Only add lower case letters
+        if( a[i] > 96 && a[i] < 123 ){
           s = s + a[i];
+        //Otherwise add space if not already at back
+        } else if( s.back() != 10 ){
+          s = s + " ";
         }
     } 
     return s;
@@ -50,7 +64,19 @@ void WordCounter::CountWords(){
 }
 
 void WordCounter::PrintWords(){
-  for (auto& x: words)
+  for(auto& x: words){
     std::cout << " [" << x.first << ':' << x.second << ']';
+  }
   std::cout << '\n';
+}
+
+void WordCounter::PrintWordsToFile(){
+  std::fstream output;
+  output.open(this->path_to_output,std::fstream::out | std::fstream::app);
+  output << '\n';
+  for(auto& x:words){
+    output << " [" << x.first << ':' << x.second << ']';
+  }
+  output << '\n';
+  output.close();
 }
