@@ -9,7 +9,6 @@
 
 class WordCounter{
 public:
-  //void CountWords(std::string &s);
   void CountWords();
   void PrintWords();
   void PrintWordsToFile();
