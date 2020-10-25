@@ -1,3 +1,6 @@
+#ifndef WORD_COUNTER_HPP_
+#define WORD_COUNTER_HPP_
+
 #include <iostream>
 #include <sstream>
 #include <fstream>
@@ -22,3 +25,5 @@ private:
   std::string ConvertToString(char* a, int size);
   void ReadFile(std::string path);
 };
+
+#endif
