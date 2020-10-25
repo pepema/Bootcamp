@@ -19,15 +19,12 @@ void PrintArray(const std::array<std::pair<int,int>,34> &a){
     std::cout << "The number \"" << a[i].first << "\" was generated " << a[i].second << " times" << std::endl;
   }
 }
+bool CustomCompare(const std::pair<int,int> &p1, const std::pair<int,int> &p2){
+  return p1.second < p2.second;
+}
 int main(){
   std::array<std::pair<int,int>,34> numbers;
   GenerateAndStore(numbers);
-  std::sort(numbers.begin(),
-            numbers.end(),
-            [] (const std::pair<int,int> &p1, const std::pair<int,int> &p2)
-            {
-              return p1.second < p2.second;
-            });
-  std::cout << "-------------------------" << std::endl;
+  std::sort(numbers.begin(),numbers.end(),CustomCompare);
   PrintArray(numbers);
 }
