@@ -4,6 +4,7 @@
 #include <array>
 #include <mutex>
 #include <memory>
+#include <iostream>
 
 template <class T, size_t SIZE=50>
 class RingBuffer{
@@ -16,7 +17,7 @@ public:
 	bool full() const;
 	size_t capacity() const;
 	size_t size() const;
-  ~RingBuffer() = default;
+  ~RingBuffer();
 
 private:
 	std::mutex mutex_;
@@ -102,6 +103,11 @@ T RingBuffer<T,SIZE>::get()
 	tail_ = (tail_ + 1) % max_size_;
 
 	return val;
+}
+
+template <class T, size_t SIZE>
+RingBuffer<T,SIZE>::~RingBuffer(){
+  delete [] this->buf_;
 }
 
 #endif

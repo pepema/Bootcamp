@@ -1,12 +1,12 @@
 #include "ring_buffer.hpp"
 #include <iostream>
 int main(){
-  RingBuffer<uint32_t,10> circle;
-  uint32_t x = 100 , y = 200;
-  circle.put(x);
-  circle.put(y);
-  x = circle.get();
-  std::cout << x << std::endl;
-  x = circle.get();
-  std::cout << x << std::endl;
+  const size_t size = 10;
+  RingBuffer<uint32_t,size> circle;
+  for(int i=1;i<size+1;i++){
+    circle.put(i);
+  }
+  for(int i=0;i<size+2;i++){
+    std::cout << circle.get() << std::endl;
+  }
 }
