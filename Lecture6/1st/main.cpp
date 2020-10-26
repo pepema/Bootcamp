@@ -77,15 +77,6 @@ void ReadInformation(const uint16_t& info){
 
   CarStatusTwo status = {d,w,s,l};
 
-  /*
-  //Lights
-  status.LS.driver_cabin = info & 1;
-  status.LS.passenger_cabin = (info & 1 << 1) >> 1;
-  status.LS.rear_cabin = (info & 1 << 2) >> 2;
-
-  //Doors
-  status.DS.driver = (info & 1 << 2) >> 2;
-  */
   PrintCarStatus(status);
 
 }
