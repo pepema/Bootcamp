@@ -10,10 +10,9 @@ int main(int argc, char** argv){
   std::string two = argv[2];
 
   std::pair<std::string,std::string> input_files = {one,two};
-  WordCounter *wc = new WordCounter(input_files);
-  wc->CountWords();
-  wc->PrintWords();
-  wc->PrintWordsToFile();
-  delete wc;
+  WordCounter wc(input_files);
+  wc.CountWords();
+  wc.PrintWords();
+  wc.PrintWordsToFile();
   return EXIT_SUCCESS;
 }
