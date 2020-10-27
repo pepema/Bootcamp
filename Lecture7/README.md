@@ -1,0 +1,1 @@
+1. WriteamakefilewhichgeneratesasharedobjectfromtheShapeAssignment.Thenwriteanotherapplicationwhichusestheshareobjectandcreatesshapes
