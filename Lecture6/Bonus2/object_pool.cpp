@@ -23,10 +23,10 @@ class ObjectPool{
          *
          * @return ObjectPool instance.
          */
-        static ObjectPool* getInstance(){
+        static ObjectPool* getInstance(int size){
             if (instance == 0){
               instance = new ObjectPool;
-              for(int i=0;i<5;i++){
+              for(int i=0;i<size;i++){
                 instance->resources.push_back(new Resource);
               }
             }
@@ -71,7 +71,7 @@ class ObjectPool{
 ObjectPool* ObjectPool::instance = 0;
 int main()
 {
-    ObjectPool* pool = ObjectPool::getInstance();
+    ObjectPool* pool = ObjectPool::getInstance(3);
     Resource* one;
     Resource* two;
     Resource* three;
