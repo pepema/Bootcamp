@@ -15,8 +15,6 @@ int main(){
       else if(packet.data[i]<15) std::cout << "0" << std::hex << (static_cast<int>(packet.data[i])) << " ";
       else std::cout << std::hex << (static_cast<int>(packet.data[i])) << " ";
     }
+    if(i==14) std::cout << std::endl;
   }
-  //long long int a = hex_to_oct(data);
-  //std::cout << static_cast<int>(a);
-  std::cout << "" << std::endl;
 }
