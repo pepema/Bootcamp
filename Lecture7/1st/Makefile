@@ -7,11 +7,8 @@ INCLUDE = shapes/include/
 all: $(SRC)main.cpp libshape.so $(COMPARE)
 	$(CXX) $(SRC)main.cpp -o main.out -I $(INCLUDE) -L. -lshape
 
-libshape.so: shape.o 
-	$(CXX) -c --shared -fPIC $(SRC)shape.cpp -o libshape.so -I $(INCLUDE) 
-
-shape.o: $(SRC)shape.cpp
-	$(CXX) -c $(SRC)shape.cpp -o shape.o -I $(INCLUDE)
+libshape.so: 
+	$(CXX) --shared -fPIC $(SRC)shape.cpp -o libshape.so -I $(INCLUDE) 
 
 clean:
-	rm libshape.so main.out shape.o
+	rm libshape.so main.out

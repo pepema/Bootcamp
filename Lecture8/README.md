@@ -1,0 +1,4 @@
+1. CreateapublicrepositoryinGitHub,pushallyourassignmentsinseparatefoldersforeachday–yoursubmissionistheURLtoyourrepository
+2. Writeabashscriptwhichpullsfromyourrepository,thefirstassignmentfromyesterday,thenitshouldbuildandrunit.
+3. Bonus 1 - WriteabashscriptwhichtakesasinputanURL,downloadsthefile,changesallinstancesof“Volvo”to“TheBestCompanyEver”.
+4. Bonus 2 - UselibpcapOpenner.sofromthecourserepositorytoperformthebonusassignmentfromyesterday’slecture.
