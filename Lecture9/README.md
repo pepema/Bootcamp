@@ -1,0 +1,2 @@
+1. Inthecoursedemorepository,thereisafileunderDay9/Assignmentfoldercalled1.cpp–fixitsissues.
+2. Write tests for one of your previous assignments – preferably something with classes and private functions.
