@@ -1,5 +1,5 @@
 # Step by step guide to start debugging in vscode
-**Note that this is the stupid way of doing this and there's probably better ways by also configuring your tasks.json**  
+**Note that this is the stupid way of doing this and there's probably a better way by also configuring your tasks.json**  
 
 1. Create your binary with debug flags.  
 If you do this with `g++` just add `-g` when compiling.  
