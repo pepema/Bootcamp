@@ -21,7 +21,19 @@
   - battery
   - starter motor
 
-2. Interfaces 
+2. Interfaces
+  - User interfaces
+    - outputs
+      - fuel level
+      - vehicle speed
+        - tyre dimensions
+        - output shaft from gearbox
+      - rpm dial
+      - temperature dial
+      - gear indicator
+    - inputs
+     -
+  - component interfaces
   - Engine -> Gearbox
     - rpm
     - more stuff?
